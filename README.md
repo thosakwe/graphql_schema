@@ -1,2 +1,2 @@
-# graphql
-An implementation of GraphQL in Dart.
+# graphql_schema
+An implementation of GraphQL's type system in Dart.
