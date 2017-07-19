@@ -11,9 +11,12 @@ class GraphQLField<Value, Serialized> {
 
   GraphQLField(this.name, {this.argument, this.resolve, this.type});
 
-  FutureOr<Value> serialize(Value value) {}
+  FutureOr<Serialized> serialize(Value value) {
+    return type.serialize(value);
+  }
 
-  Future deserialize(Serialized serialized) {
+  FutureOr<Value> deserialize(Serialized serialized) {
     if (resolve != null) return resolve(serialized);
+    return type.deserialize(serialized);
   }
 }
